@@ -49,12 +49,14 @@ python demo_A_youtube_clip.py.py --path  {outpath}
 ```
 
 ## Generate Clips in one step
-
+```
 |-- youtube_video_path
         |-- video_id_1
             |-- original_video.mp4
         |-- video_id_2
             |-- original_video.mp4
+
+```
 
 ```
 python preprocess.py -f ByteTrack/exps/example/mot/yolox_x_mix_det.py -c pretrained/bytetrack_x_mot17.pth.tar --fp16 --fuse --path youtube_video_path --isr_weight_path weights/swin_base_patch4_window7_224.pth
