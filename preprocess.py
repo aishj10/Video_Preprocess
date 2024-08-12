@@ -68,6 +68,13 @@ def make_parser():
         action="store_true",
         help="Use this to obtain mean of bounding boxes",
     )
+    
+    parser.add_argument(
+        "--save_clip",
+        default=True,
+        action="store_true",
+        help="Use this if you want to save output clip",
+    )
         
     parser.add_argument(
         "--save_result",
@@ -772,7 +779,8 @@ def main(exp, args):
                             
             save_path = os.path.join(save_folder, "results.json")
             result = save_clip_data(dclip_out, save_path)
-            save_clip_video(result, save_folder, inpath)
+            if args.save_clip:
+                save_clip_video(result, save_folder, inpath)
                         
 
 if __name__ == "__main__":
