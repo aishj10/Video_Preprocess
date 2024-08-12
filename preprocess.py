@@ -195,7 +195,7 @@ def generate_frame_clip(clip, start, end, x, y, w, h, adjust = False):
             cn['frame'] = cropped_frame
             if adjust:
                 cn['x'] = c['x']+x
-                cn['y'] = c['y']+x
+                cn['y'] = c['y']+y
 
             cn['w'] = min(shape[1], c['w'])
             cn['h'] = min(shape[0], c['h'])
