@@ -47,7 +47,7 @@ def make_parser():
 
     parser.add_argument(
         #"--path", default="./datasets/mot/train/MOT17-05-FRCNN/img1", help="path to images or video"
-        "--path", default="./videos/palace.mp4", help="path to images or video"
+        "--path", default="./videos/", help="path to images or video"
     )
     
 #     parser.add_argument(
@@ -88,7 +88,7 @@ def make_parser():
         "--isr_weight_path",
         default="/data/aujadhav/ISR_ICCV2023_Oral/weights/swin_base_patch4_window7_224.pth",
         type=str,
-        help="pls input your expriment description file",
+        help="Path to ISR model weights",
     )
     
     parser.add_argument("-c", "--ckpt", default=None, type=str, help="ckpt for eval")
@@ -474,7 +474,7 @@ def get_sk_bbox(body, clip, kpt_ids, face_kpt_ids, args):
         frame = c['frame']
             
         frame_time = c['time']
-        print("c['frame_id']",c['frame_id'])
+       
         keypoints, scores, ybboxes = body(frame, ret_bbox=True)
         
         bboxes, filtered_keypoints = get_bbox_upperbody(frame, keypoints, scores, kpt_ids, kpt_thr=0.5)
@@ -609,7 +609,6 @@ def imageflow_demo(predictor, current_time, inpath,  args):
                         online_scores.append(t.score)
                         fd = {"frame_id": frame_id, "obj_id": tid, "x": tlwh[0], "y":tlwh[1], "w": tlwh[2], "h":tlwh[3], "time": frame_time, "frame": img_info["raw_img"] }
                         
-                        print("found", frame_id, tlwh)
                         result_dict[frame_id].append(fd)
                         #obj_dict[frame_id].append({"frame_id": frame_id, "obj_id": tid})
                                                 
@@ -620,7 +619,7 @@ def imageflow_demo(predictor, current_time, inpath,  args):
                 timer.toc()        
             else:
                 timer.toc()
-                print("not found", frame_id)
+                
 #                 if first_frame and last_frame:
 #                     result_out.append([result_dict, first_frame, last_frame])
 #                     result_dict = defaultdict(list)
