@@ -1,8 +1,8 @@
 ## Installation
 
-### Install ByteTrack (follow ByteTrack/README.md)
-### Install RTMLIB  (follow rtmlib/README.md)
-### Install ISR  (follow ISR_ICCV2023_Oral/README.md)
+#### Install ByteTrack (follow ByteTrack/README.md)
+#### Install RTMLIB  (follow rtmlib/README.md)
+#### Install ISR  (follow ISR_ICCV2023_Oral/README.md)
 
 
 ## Generate Clips Step-By-Step
